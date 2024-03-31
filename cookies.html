@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Set Cookies</h1>
+<form name="form" action="">
+    Enter name: <input type="text" name="user"/>
+    <input type="button" value="Set Cookie" onclick="setCookie();"/>
+</form>
+
+<script>
+    function setCookie() {
+        if( document.form.user.value == "" ) {
+            alert("Enter Name:");
+            return;
+        }
+        cookievalue = escape(document.form.user.value) + ";";
+        document.cookie = "name=" + cookievalue;
+        document.write ("Setting Cookies : " + "name=" + cookievalue );
+    }
+</script>
+
+</body>
+</html>

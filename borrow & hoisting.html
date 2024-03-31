@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>borrow & hoisting</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        bulk();
+        //borrow process coding
+        let obj = {
+            name: "kaushik",
+            id: 2324,
+            roll: "technical",
+            native: "tiruchengode",
+            fun: function (a) {
+                console.log(a,this.name, this.id, this.roll, this.native);
+            }
+        }
+        obj.fun();
+            let sub = {
+                name: "kavinkumar",
+                id: 2425,
+                roll: "technical",
+                native: "tiruchengode",
+            }
+        obj.fun.call(sub,"hello");
+
+        //hoisting program coding
+        function bulk(){
+            console.log("big boy");
+        }
+
+    </script>
+</body>
+
+</html>

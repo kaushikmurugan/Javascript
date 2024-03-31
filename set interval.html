@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript clearInterval() Method</h1>
+<input type="button" value="startTime" onclick="startTime()" />
+<input type="button" value="stopTime" onclick="stopTime()" /><br><br>
+
+<span class="h"></span><span class="m"></span><span class="s"></span><span class="year"></span>
+
+<script>
+    let times;
+    function startTime() {
+        times = setInterval(ChangeTime, 1000);
+    }
+    function ChangeTime() {
+        let date = new Date();
+        let year = date.getFullYear();
+        let h = date.getHours();
+        let m = date.getMinutes();
+        let s = date.getSeconds();
+        document.querySelector(".h").innerText = `${h} hours`;
+        document.querySelector(".m").innerText =`${m} minutes`;
+        document.querySelector(".s").innerText =`${s} seconds`;
+        document.querySelector(".year").innerText =`${year} year`;
+        
+    }
+    function stopTime() {
+        clearInterval(times);
+    }
+</script>
+
+</body>
+</html>

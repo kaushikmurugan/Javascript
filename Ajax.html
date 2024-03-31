@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+</head>
+<body>
+    <button id="event">click here</button>
+    <div id="display"></div>
+
+
+    <script>
+        //ajax loading the data from the server
+        //request, open, send
+        document.getElementById("event").addEventListener("click",()=>{
+            let go = new XMLHttpRequest(); //ready state is (0,1,2,3,4) 0 means request is unsend, 1 means request is available, 2 means send request has been called, 3 means request is loading, 4 means request is done responsing 
+            go.open("GET","jason map fun.html");
+            go.onreadystatechange = ()=>{
+                if(this.readystate===4 && this.status===200)
+                {
+                    document.getElementById("display").innerHTML=this.responceText;
+                }
+            }
+            go.send();
+        });
+    </script>
+</body>
+</html>

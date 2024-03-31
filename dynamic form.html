@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form</title>
+
+    <STYLE>
+        h1{
+            display: flex;
+            justify-content: center;
+        }
+        #formvalidation{
+            display: flex;
+            justify-content: center;            
+        }
+    </STYLE>
+</head>
+<body>
+    <h1>Dynamic form creation</h1>
+    <div id="formvalidation">
+        <button id="display" type="button">START</button>
+    </div>
+    
+    <script id="script">
+        document.getElementById("display").addEventListener("click",()=>{
+            let displaydiv = document.createElement("div");
+            displaydiv.setAttribute("id","dispaly");
+            document.body.insertBefore(displaydiv,document.getElementById("script"));
+
+            let form1 = document.createElement("form");
+            displaydiv.appendChild(form1);
+
+            let field = document.createElement("fieldset");
+            form1.appendChild(field);
+
+            let label1 = document.createElement("label");
+            label1.setAttribute("id","labelname");
+            let con=document.createTextNode("NAME  ");
+            label1.appendChild(con);
+            field.appendChild(label1);
+
+            let inputname = document.createElement("input");
+            inputname.setAttribute("type","text");
+            inputname.setAttribute("name","inputname");
+            inputname.setAttribute("placeholder","enter you Name");
+            field.appendChild(inputname);
+
+            let br=document.createElement("br");
+            field.appendChild(br);
+            let br1=document.createElement("br");
+            field.appendChild(br1);
+
+            let label2 =document.createElement("label");
+            label2.setAttribute("id","labelemail");
+            let con2=document.createTextNode("EMAIL  ");
+            label2.appendChild(con2);
+            field.appendChild(label2);
+
+            let inputemail = document.createElement("input");
+            inputemail.setAttribute("type","email");
+            inputemail.setAttribute("name","inputemail");
+            inputemail.setAttribute("placeholder","enter you email");
+            field.appendChild(inputemail);
+
+            let br3=document.createElement("br");
+            field.appendChild(br3);
+            let br4=document.createElement("br");
+            field.appendChild(br4);
+
+            let label3 =document.createElement("label");
+            label3.setAttribute("id","labelage");
+            let con3 = document.createTextNode("AGE  ");
+            label3.appendChild(con3);
+            field.appendChild(label3);
+
+            let inputage =document.createElement("input");
+            inputage.setAttribute("type","number");
+            inputage.setAttribute("name","inputage");
+            inputage.setAttribute("placeholder","enter your age");
+            field.appendChild(inputage);
+           
+           
+            let br5=document.createElement("br");
+            field.appendChild(br5);
+            let br6=document.createElement("br");
+            field.appendChild(br6);
+
+            let pass =document.createElement("label");
+            pass.setAttribute("id","pass");
+            let con4 = document.createTextNode("PASSWORD  ");
+            pass.appendChild(con4);
+            field.appendChild(pass);
+
+            let pass1 =document.createElement("input");
+            pass1.setAttribute("type","password");
+            pass1.setAttribute("name","pass1");
+            pass1.setAttribute("placeholder","enter your password");
+            field.appendChild(pass1);
+           
+           
+            let br7=document.createElement("br");
+            field.appendChild(br7);
+            let br8=document.createElement("br");
+            field.appendChild(br8);
+
+            let cpass =document.createElement("label");
+            cpass.setAttribute("id","cpass");
+            let con5 = document.createTextNode("CONFIRM PASSWORD  ");
+            cpass.appendChild(con5);
+            field.appendChild(cpass);
+
+            let pass2 =document.createElement("input");
+            pass2.setAttribute("type","password");
+            pass2.setAttribute("name","inputcpass");
+            pass2.setAttribute("placeholder","enter your password");
+            field.appendChild(pass2);
+
+            let br9=document.createElement("br");
+            field.appendChild(br9);
+            let br10=document.createElement("br");
+            field.appendChild(br10);
+
+            let create = document.createElement("input");
+            create.setAttribute("type","submit");
+            create.setAttribute("value","create account");
+            field.appendChild(create);
+
+            let test = document.createElement("input");
+            test.setAttribute("type","button");
+            test.setAttribute("value","test values");
+            test.setAttribute("id","test");
+            field.appendChild(test);
+
+            //regex
+            document.getElementById("test").addEventListener("click",()=>{
+
+                //regex for name validity
+                let nameregex = /[a-zA-Z]/;
+                console.log(`name :${nameregex.test(inputname.value)}`);
+
+                //regex for email validity
+                let emailregex = /^[\w]+@[a-z.]+$/;
+                console.log(`email : ${emailregex.test(inputemail.value)}`);
+
+                //regex for age validity
+                let ageregex = /[1-9]{1,2}$/;
+                console.log(`age : ${ageregex.test(inputage.value)}`);
+
+                //regex for password validy
+                let passregex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[!@#$%^&*,./-_+])[a-z][A-Z][!@#$%^&*-_,./]{8,}$/;
+                console.log(`password :${passregex.test(pass1.value)}`);
+
+                //verfication for the pass anr confirm password
+                if(pass1.value == pass2.value){
+                    console.log("all set to ready...");
+                }
+                else if(pass1.value==""||pass2.value==""){
+                    console.log("not yet ready...");
+                }
+                else{
+                    console.log("not yet ready...");
+                }
+
+            });
+        })
+    </script>
+</body>
+</html>

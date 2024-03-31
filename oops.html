@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oops concept</title>
+</head>
+
+<body>
+
+
+    <script>
+        class kaushik {
+            constructor(a,b) {
+                console.log("hi");
+                this.a=a;
+                this.b=b;
+            }
+            classmine = ()=>{
+                console.log(this.a,this.b);
+            }
+
+            classkaushik = (firstName,lastName) => {
+                console.log(firstName,lastName);
+            }
+        }
+        let myClass = new kaushik("kaushik","kavin");
+        console.log("hello");
+        myClass.classmine();
+        myClass.classkaushik("kavin","kumar");
+    </script>
+</body>
+
+</html>

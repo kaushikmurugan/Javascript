@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jason map function</title>
+</head>
+
+<body>
+
+    <div id="display">
+
+    </div>
+
+    <script>
+        // let spred = (a,b,c,d,e)=>{
+        //     console.log(a+b+c+d+e);
+        // }
+        // spred(1,2,3,4,5);
+
+        //spread operator //rest operator store the multiple elements in a single variable and it is will be only array
+        let spred = (...a) => {
+            console.log(a);
+        }
+        spred(1, 2, 3, 4, 5);
+
+
+        //spread with an object
+        spred({
+            name: "kaushik",
+            id: 1,
+            age: 21
+        });
+        let arr1 = [1, 2, 3, 4, 5];
+        let arr2 = [6, 7, 8, 9, 10];
+        let arr3 = [...arr1, ...arr2];
+        console.log(arr3);
+
+        //spread object
+        //spread with array of object //spread operator store the multiple array or object in a single variable.
+        let arr4 = [
+            { name: "kavin kumar", dep: "mechanical", roll: 89 },
+            { name: "kaushik", dep: "mechanical", roll: 88 },
+            { name: "kavin", dep: "mechanical", roll: 90 }
+        ];
+
+        let act = [...arr4];
+        console.log(act);
+
+        let samp = [...arr4].filter((collect) =>collect.roll==89);
+        console.log(samp);
+
+        let asit = samp.map((collect)=>{
+            return (`<br> id : ${collect.roll} <br>name: ${collect.name} <br>dep: ${collect.dep}`);
+        });
+        document.write(asit);
+
+        //destrector array
+        let arr11=["i","am","bat man"];
+        let [a,b,c]=arr11;
+        document.write(`<br> c is ${c}`);
+
+        //destructor object canot be retrived in this operator
+        let obj11={name:"bat man",roll:401,strength:"night vision"};
+        let{p,q,r}=obj11;
+        document.write(`<br> r is ${r}`);
+        console.log(p);
+
+        //destructor array of objects
+        let obj12=[{name:"bat man",roll:401,strength:"night vision"},{name:"super man",roll:400,strength:"speed"}];
+        let [m,n,s]=obj12;
+        console.log(m,n,s);
+        document.write(`<br><br><br>${m.name},${m.roll},${m.strength}`);
+
+        let lamp=[m,n].map((item)=>{
+            return`<br><br>name:${item.name} <br>roll:${item.roll} <br>strength:${item.strength}`;
+        });
+        document.write(lamp);
+
+
+    </script>
+</body>
+
+</html>

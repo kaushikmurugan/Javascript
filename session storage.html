@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>session storage</title>
+</head>
+<body>
+    
+    <form action="">
+        <label for="">Name <input type="text" id="name"></label><br>
+        <label for="">roll <input type="text" id="roll"></label><br>
+        <label for="">strength <input type="text" id="strength"></label><br>
+        <input type="submit" id="btn">
+    </form>
+    
+    <script>
+        //session storage ->> it will be available untill the session is open it wont be retrived for later reuse.
+        sessionStorage.setItem("first Name","kaushik");
+        console.log(sessionStorage);
+
+        //local storage ->> it will be available in local files and it can be retrived for later reuse.
+        // localStorage.setItem("nick name","bat man");
+        // console.log(localStorage);
+
+        //get items in local stg
+        // localStorage.getItem("first name","super man","roll","security");
+        // console.log(localStorage);
+        // document.write(`${localStorage.firstname}`);
+
+        //remove item in local stg
+        // localStorage.removeItem("roll");
+        // console.log(localStorage);
+
+        //to delete all item in a local stg
+        // localStorage.clear();
+        // console.log(localStorage);
+
+        let fname=document.getElementById("name");
+        let roll=document.getElementById("roll");
+        let strength=document.getElementById("strength");
+
+        //one method of declaration
+        document.getElementById("btn").addEventListener("click",(e)=>{
+            e.preventDefault();
+            // localStorage.setItem("Name",fname.value);
+            // localStorage.setItem("roll",roll.value);
+            // localStorage.setItem("strength",strength.value);
+            // console.log(localStorage);
+            // console.log(localStorage.getItem("Name"));
+            // console.log(localStorage.getItem("roll"));
+            localStorage.clear();
+        });
+
+    </script>
+
+</body>
+</html>
